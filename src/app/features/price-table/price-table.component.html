@@ -1,0 +1,31 @@
+<section class="bank">
+  <div class="container">
+    <div class="bank__inner">
+      <div class="bank__table">
+        <table>
+          <caption>Rate Table</caption>
+          <thead>
+            <tr>
+              <th (click)="sortName('txt')">Name &#8597;</th>
+              <th (click)="sortName('cc')">Symbol &#8597;</th>
+              <th (click)="sortName('rate')">Rate &#8597;</th>
+              <th (click)="sortName('r030')">R030 &#8597;</th>
+            </tr>
+          </thead>
+          <tbody
+            *ngFor="let bank of arr$ | async | orderBy: key: reverse | paginate: {itemsPerPage: 10,currentPage: p}">
+            <tr>
+              <td>{{bank.txt}}</td>
+              <td>{{bank.cc}}</td>
+              <td>{{bank.rate}}</td>
+              <td>{{bank.r030}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bank__pagination">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>
