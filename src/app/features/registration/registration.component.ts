@@ -47,6 +47,8 @@ export class RegistrationComponent implements OnInit {
           throw e;
         })
       )
-      .subscribe(() => this.router.navigate(['/']));
+      .subscribe(() => {
+        this.router.navigate(['/']);
+      });
   }
 }

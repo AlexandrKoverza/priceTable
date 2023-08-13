@@ -13,7 +13,7 @@
             </tr>
           </thead>
           <tbody
-            *ngFor="let bank of arr$ | async | orderBy: key: reverse | paginate: {itemsPerPage: 10,currentPage: p}">
+            *ngFor="let bank of arr$ | async | orderBy: key: reverse | paginate: {itemsPerPage: 10,currentPage: page}">
             <tr>
               <td>{{bank.txt}}</td>
               <td>{{bank.cc}}</td>
@@ -24,8 +24,9 @@
         </table>
       </div>
       <div class="bank__pagination">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
       </div>
     </div>
   </div>
 </section>
+
